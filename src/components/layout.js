@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { Navigation } from "./navigation"
 
 import { rhythm, scale } from "../utils/typography"
 
@@ -61,6 +62,7 @@ class Layout extends React.Component {
         }}
       >
         <header>{header}</header>
+        <Navigation />
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
