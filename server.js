@@ -23,9 +23,12 @@ nextApp.prepare().then(() => {
 
     app.get("*", (req, res) => { return handle(req, res); });
 
-    app.listen(8000, err => {
+    app.set('port', process.env.PORT || 8000);
+    var port = app.get('port');
+
+    app.listen(port, err => {
         if (err) throw err;
-        console.log("> ready on http://localhost:8000");
-        console.log(`> Apollo Server ready at http://localhost:8000${apolloServer.graphqlPath}`);
+        console.log(`> ready on http://localhost:${port}`);
+        console.log(`> Apollo Server ready at http://localhost:${port}${apolloServer.graphqlPath}`);
     })
 });
